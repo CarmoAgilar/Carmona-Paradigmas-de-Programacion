@@ -1,0 +1,19 @@
+
+_____________________________________________
+| R -> escribir remplazando                 |
+| esc -> salir de modo escritura            |
+| i -> escribir insertando                  |
+| o -> abrir renglon abajo                  | 
+| O -> abrir renglon arriba                 |
+| x -> borrar                               |
+| dd -> borrar todo el renglon              |
+| D -> borrar renglon desde este espacio    |
+| :w -> guardar                             |
+| :wq -> guardar y salir                    |
+| :q! -> salir sin guardar                  |
+| /palabra -> buscar "palabra"              |
+|   -> n -> sig. palabra                    |
+|   -> N -> anterior palabra                | 
+| :30 -> va a la linea 30                   |          
+| :$ -> se va a la ultima linea             |
+|___________________________________________|
