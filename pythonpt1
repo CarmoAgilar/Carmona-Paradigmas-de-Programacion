@@ -1,0 +1,24 @@
+""" ESTE ES JUN SUPERCOMENTARIO
+    DE INICIO A NUESTRO RESUMEN
+"""
+#============================
+# Carmona Aguilar Diego
+#============================
+#----------------------------
+# Primer codigo subido
+#---------------------------
+
+print (2+3)    #suma
+print (2*2)    #multiplicacion
+print (2/3)    #division
+print (2**10)  #exponent
+print (10%2)   #modulo
+print (10%0.1) #quien sabe
+
+#===================================
+# Mensajes a pantalla
+#=============================
+#(Se pueden poner los parentesis separados a los prints)
+
+print ("Este es un comando de python. ", "Este es otro enunciado.", t)
+prin
