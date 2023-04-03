@@ -1,4 +1,4 @@
-""" ESTE ES JUN SUPERCOMENTARIO
+""" ESTE ES UN SUPERCOMENTARIO
     DE INICIO A NUESTRO RESUMEN
 """
 #============================
