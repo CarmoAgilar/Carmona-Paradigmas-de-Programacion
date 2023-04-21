@@ -104,3 +104,94 @@ def salu2(nombre): # funcion con argumento
 salu2("Julian")
 salu2("Diego")
 
+def saludos(nombre:str): # ahorramos trabajo al interprete con el str
+    """Funcion que saluda pero ahora por tu nombre:str"""
+    print("Hola", nombre)
+
+salu2("Julian")
+a = 123
+print(type(a))
+saludos(a)
+
+#=========================================
+# Funciones con muchos argumentos
+#=========================================
+def saludos_multiples(nombre1,nombre2,nombre3):
+    """Funcion que saluda a tres gentes"""
+    print("Hola", nombre1, ", ", nombre2, " y ", nombre3)
+
+saludos_multiples("Esteban","Daniel", "Luis")
+
+def muchos_saludos(*nombres):
+    """Funcion que saluda a muchas personas a la vez"""
+    i = 0
+    print("Hola ", end="") # end= es para ponerlo de corrido
+    while len(nombres) > i:
+        if (i==len(nombres)-1):
+            print(nombres[i])
+        else:
+            print(nombres[i], end=",")
+        i+=1
+muchos_saludos("Juan","Emilio","Luis","Pablo","Arturo","Miguel","Manuel","Gabriel","Gael")
+
+
+def greet(firstname, lastname):
+    print("Hello", firstname, lastname)
+
+greet(lastname="Jobs", firstname="Steve") # Llamamos la funciom con argumentos desordenados
+
+#========================================
+# Funcion con argumentos escondidos
+#========================================
+def greet(**person):
+    print("Hello", person["firstname"], person["lastname"])
+
+greet(lastname="Jobs", firstname="Steve") 
+greet(firstname="Steve", lastname="Jobs")
+greet(lastname="Escobar", firstname="Pablo", age=99) # podemops pasar mas argumentos y no se rompe
+
+#=======================================
+# Funcion con valores por defecto
+#0======================================
+def greet(name = "Guest"):
+    print("Hello", name)
+greet() # Guest
+greet("Juan")
+
+#==========================
+# Funcion que retorna algo
+#==========================
+def suma(a, b):
+    return a + b
+
+total=suma(5, suma(10, 20)) #Podemos llamaar a la funcion para otro resultado de la funcion
+print(total)
+
+#===============================================
+# Lambda
+# nombre_funcion = lambda variable : funcion
+#===============================================
+x_al_cuadrado = lambda x : x * x
+
+a1 = x_al_cuadrado(5)
+print(a1)
+
+suma = lambda x1, x2, x3 : x1+x2+x3
+print(suma(99,98,97))
+
+sumas = lambda *x : x[0]+x[1]+x[2]+x[3]
+print(sumas(100,200,300,400))
+
+
+print((lambda x: x*x)(6)) # Funcion anonima
+
+#============================
+# Funcion con variable global
+#============================
+name="Steve"
+def greet():
+    global name
+    name = "Bill"
+    print("Hello", name)
+
+greet()
