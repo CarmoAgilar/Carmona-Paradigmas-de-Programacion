@@ -88,7 +88,7 @@ class Rectangulo(Cuadrilatero): #hijo de cuadrilatero
 
 class Cuadrado(Rectangulo): #nieto de cuadrilatero
     def __init__(self, a):
-        super().__init__(a,a)
+        super().__init__(a,a,a,a)
 
     def area(self):
         area = self.lado1**2
@@ -96,10 +96,76 @@ class Cuadrado(Rectangulo): #nieto de cuadrilatero
 
 cuadrado1 = Cuadrado(5)
 
-print("Perimetro = ", cuadrado1.perimetro())
-print("Area = ", cuadrado1.area())
+perimetro1 = cuadrado1.perimetro()
 
+print("Perimetro = ", perimetro1)
+#_______________________________________________________
+#|                                                      |
+#|                  Inicio de segunda parte             |
+#|______________________________________________________|
+#======================
+# Asociacion
+#======================
+class A:
+    __a:float=0.0
+    __b:float=0.0
+    __c:float=0.0
 
+    def __init__(self,a:float,b:float,c:float):
+        self.a = a
+        self.b = b
+        self.c = c
 
+class B:
+    __d:float=0.0
+    __e:float=0.0
 
+    def __init__(self,d:float,e:float):
+        self.d = d
+        self.e = e
+
+    def sumar_todo(self, aa:float, bb:float):
+        x:float=self.d+self.e+aa+bb
+        return x
+
+objetoA = A(1.0,2.0,3.0)
+objetoB = B(4.0,5.0)
+print(objetoB.sumar_todo(objetoA.a, objetoA.b))
+
+class C: # objeto con dos numeros y un objeto A
+         # usando objetos independientes
+    __d:float=0.0
+    __e:float=0.0
+    __Aa:A=None
+
+    def __init__(self,d:float,e:float):
+        self.d = d
+        self.e = e
+        #el objeto A está instanciado dentro
+        self.Aa = A(1.0,2.0,3.0)
+
+    def sumar_todo(self):
+        x:float=self.d+self.e+self.Aa.a+self.Aa.b
+        return x
+    
+objetoC = C(4.0,5.0) # <- composicion
+print(objetoC.sumar_todo())
+
+class D: #ahora el objeto A esta definido por fuera
+    __d:float=0.0
+    __e:float=0.0
+    __Aa:A=None
+
+    def __init__(self,d:float,e:float,Aa:A):
+        self.d = d
+        self.e = e
+        #el objeto A está instanciado fuera
+        self.Aa = Aa
+
+    def sumar_todo(self):
+        x:float=self.d+self.e+self.Aa.a+self.Aa.b
+        return x
+
+objetoD = D(4.0,5.0,objetoA) # <- agregacion
+print(objetoD.sumar_todo())
 
