@@ -7,13 +7,13 @@
 import numpy as np
 
 class Curva:
-    """==========================================
+    """================================================
        Objeto curva
-       ==========================================
-       Parametros: x ordenadas ((x1),(x2)...)
+       ================================================
+       Parametros: x coordenada ordenada ((x1),(x2)...)
                    f propiedades  f1(x),f2(x)...)
                    dim dimensiones
-       ==========================================
+       ================================================
     """
     def __init__(s, x:float=[], dim:int=3):
 
@@ -86,8 +86,8 @@ def zspline(puntos,dim,n,cont):
     x = np.zeros(n,dtype=np.float64)
     y = np.zeros(n,dtype=np.float64)
 
-    for i range(0,n):
+    for i in range(0,n):
         r:np.float64 = float(i)*dx
-        [x[i],y[i]] = curva.interpolacion(cont,r)]
+        [x[i],y[i]] = curva.interpolacion(cont,r)
 
     return x,y
