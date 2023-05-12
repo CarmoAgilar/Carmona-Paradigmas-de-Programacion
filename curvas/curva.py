@@ -89,7 +89,7 @@ class Curva:
                 im1 = s.n-1
             am1:np.float64 = a+1.0
             ap1:np.float64 = 1.0-a
-            ap2:np.float63 = 2.0-a
+            ap2:np.float64 = 2.0-a
             z:np.float64 = 1.0 - 2.5*a*a + 1.5*a*a*a
             zp1:np.float64 = 1.0 - 2.5*ap1*ap1 + 1.5*ap1*ap1*ap1
             zp2:np.float64 = 0.5*(2.0-ap2)*(2.0-ap2)*(1.0-ap2)
@@ -116,7 +116,7 @@ class Curva:
             if i == s.n-3:
                 ip3=0
             im1:np.int32 = i-1
-            im1:np.int32 = i-2
+            im2:np.int32 = i-2
             if i == 0:
                 im1 = s.n-1
                 im2 = s.n-2
@@ -131,9 +131,9 @@ class Curva:
             z:np.float64 = 1.0 + a*a*u12*(-15.0+a*(-35.0+a*(63.0+a*(-25.0))))
             zp1:np.float64 = 1.0 + ap1*ap1*u12*(-15.0+ap1*(-35.0+ap1*(63.0+ap1*(-25.0))))
             zp2:np.float64 = -4.0 + u12*ap2*(225.0+ap2*(-367.5+ap2*(272.0+ap2*(-94.5+12.5*ap2))))
-            zp3:np.float = 18.0 + u12*ap3*(-459.0+ap3*(382.5+ap3*(-156.5+ap3*(31.5-2.5*ap3))))
+            zp3:np.float64 = 18.0 + u12*ap3*(-459.0+ap3*(382.5+ap3*(-156.5+ap3*(31.5-2.5*ap3))))
             zm1:np.float64 = -4.0 + u12*am1*(225.0+am1*(-367.5+am1*(272.0+am1*(-94.5+12.5*am1))))
-            zm2:np.float = 18.0 + u12*am2*(-459.0+am2*(382.5+am2*(-156.5+am2*(31.5-2.5*am2))))
+            zm2:np.float64 = 18.0 + u12*am2*(-459.0+am2*(382.5+am2*(-156.5+am2*(31.5-2.5*am2))))
             xi.append(zp1*s.x[ip1]+z*s.x[i]+zp2*s.x[ip2]+zp3*s.x[ip3]+zm1*s.x[im1]+zm2*s.x[im2])
             for j in range(1,s.dim):
                 xi.append(zp1*s.x[ip1+j*s.n]+z*s.x[i+j*s.n]+zp2*s.x[ip2+j*s.n]+zp3*s.x[ip3+j*s.n]+zm1*s.x[im1+j*s.n]+zm2*s.x[im2+j*s.n])
