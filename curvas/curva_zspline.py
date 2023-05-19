@@ -3,7 +3,7 @@
 #=====================================
 # Diego Carmona
 import numpy as np
-from curva import Curva, zspline
+from curva import Curva,zspline
 import matplotlib.pyplot as plt
 import math
 #=========================
@@ -37,4 +37,4 @@ plt.scatter(puntos[0:nump],puntos[nump:2*nump],marker='o',color='black')
 plt.xlabel("Coordenada x")
 plt.ylabel("Coordenada y")
 plt.title("Curva cerrada z-spline en 2D")
-plt.shpw
+plt.show()()

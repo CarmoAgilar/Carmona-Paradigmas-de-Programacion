@@ -22,7 +22,7 @@ class Curva:
         s.n:np.int32 = int(len(s.x)/s.dim) # numero de puntos que hay
         s.l=[]      # longitud sobre la curva
         s.lista_de_puntos()
-        s.longitud
+        s.longitud()
 
     def lista_de_puntos(s) -> str:
 
@@ -47,7 +47,7 @@ class Curva:
                 ip1 = 0
             d:np.float64 = (s.x[ip1]-s.x[i])**2
             for j in range(1,s.dim):
-                d += (s.x[ip1+j*s.n]-s.x[i+j*s.n])**2
+                d += (s.x[ip1+j*s.n]-s.x[i+j**s.n])**2
             t += d**0.5
             s.l.append(t)
         s.L = t
