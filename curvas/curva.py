@@ -29,7 +29,7 @@ class Curva:
         print(f"Numero de puntos = {str(s.n)}")
 
         s.formato = "" #formato de datos
-        for j in range(s.dim):
+        for i in range(s.dim):
             s.formato += "%15.8e"
         s.formato += "\n"
 
@@ -47,7 +47,7 @@ class Curva:
                 ip1 = 0
             d:np.float64 = (s.x[ip1]-s.x[i])**2
             for j in range(1,s.dim):
-                d += (s.x[ip1+j*s.n]-s.x[i+j**s.n])**2
+                d += (s.x[ip1+j*s.n]-s.x[i+j*s.n])**2
             t += d**0.5
             s.l.append(t)
         s.L = t
@@ -130,9 +130,9 @@ class Curva:
             ap3:np.float64 = 3.0-a
             z:np.float64 = 1.0 + a*a*u12*(-15.0+a*(-35.0+a*(63.0+a*(-25.0))))
             zp1:np.float64 = 1.0 + ap1*ap1*u12*(-15.0+ap1*(-35.0+ap1*(63.0+ap1*(-25.0))))
-            zp2:np.float64 = -4.0 + u12*ap2*(225.0+ap2*(-367.5+ap2*(272.0+ap2*(-94.5+12.5*ap2))))
+            zp2:np.float64 = -4.0 + u12*ap2*(225.0+ap2*(-367.5+ap2*(272.5+ap2*(-94.5+12.5*ap2))))
             zp3:np.float64 = 18.0 + u12*ap3*(-459.0+ap3*(382.5+ap3*(-156.5+ap3*(31.5-2.5*ap3))))
-            zm1:np.float64 = -4.0 + u12*am1*(225.0+am1*(-367.5+am1*(272.0+am1*(-94.5+12.5*am1))))
+            zm1:np.float64 = -4.0 + u12*am1*(225.0+am1*(-367.5+am1*(272.5+am1*(-94.5+12.5*am1))))
             zm2:np.float64 = 18.0 + u12*am2*(-459.0+am2*(382.5+am2*(-156.5+am2*(31.5-2.5*am2))))
             xi.append(zp1*s.x[ip1]+z*s.x[i]+zp2*s.x[ip2]+zp3*s.x[ip3]+zm1*s.x[im1]+zm2*s.x[im2])
             for j in range(1,s.dim):
