@@ -15,10 +15,10 @@ class BaseDeDatos(RepositorioDeUsuarios):
         mi.__password = password
 
     def abrir(mi) -> None:
-        print(f"Abriendo la conexion a la base de datos: {mi._host}:{mi.__user}@{mi.__password}")
+        print(f"Abriendo la conexion a la base de datos: {mi.__host}:{mi.__user}@{mi.__password}")
 
     def guardar(mi, usuario:Usuario) -> None:
-        userElements = { "nombre": usuario.get.Nombre(),
+        userElements = { "nombre": usuario.getNombre(),
                          "apellido": usuario.getApellido(),
                          "edad": usuario.getEdad() }
         print(f"Guardando usuario en la base de dastos {usuario.getNombre()}\n")
