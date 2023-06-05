@@ -1,7 +1,7 @@
 from aplicacion.banco.cliente_bancario import ClienteBancario
 
 #=============================================
-# try intenta correr las indtrucciones
+# try intenta correr las instrucciones
 # except atrapa el error en una variable
 # la variable (e) se puede convertir en string
 #=============================================
