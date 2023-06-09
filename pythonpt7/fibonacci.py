@@ -29,9 +29,9 @@ def fibonacci(n):
     if n==2:
         valor = 1
     if n>2:
-        valor = fibonacci(n-1) + fibonaccis(n-2)
+        valor = fibonacci(n-1) + fibonacci(n-2)
 
-    fibonacci[n] = valor
+    fibonaccis[n] = valor
     return valor
 
 for i in range(1,10001):

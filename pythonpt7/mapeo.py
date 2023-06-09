@@ -10,7 +10,7 @@ def alcubo(x): # funcion pura x**3
 def mapeo(func,lista_numeros):
     resultado = []
 
-    for in in lista_numeros:
+    for i in lista_numeros:
         resultado.append(func(i))
     return resultado
 
