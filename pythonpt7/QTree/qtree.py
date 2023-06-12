@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt # biblioteca para graficar
 import matplotlib.patches as patches
 
-class Partucula():
+class Particula():
     def __init__(self, x:float, y:float):
         self.x = x
         self.y = y
@@ -48,6 +48,54 @@ def subdivision_recursiva(nodo:Nodo, k:int):
 
     nodo.hijos = [nodo.x1, nodo.x2, nodo.x3, nodo.x4]
 
-    minuto 1;48 del lab 8.1
+def cuantas_contiene(x:float, y:float, w:float, h:float, particulas):
+    pts = []
+    for particula in particulas:
+        if particula.x >= x and particula.x <= x+w and particula.y >= y and particula.y <= y+h:
+            pts.append(particula)
+    return pts
 
+def encontrar_hijos(nodo):
+    if not nodo.hijos:
+        return [nodo]
+    else:
+        hijos = []
+        for hijo in nodo.hijos:
+            hijos += (encontrar_hijos(hijo))
+    return hijos
 
+class QTree():
+    def __init__(self,k:int, n:int):
+        self.umbral = k
+        self.particulas = [Particula(random.uniform(0, 10), random.uniform(0, 19)) for x in range(n)]
+        self.root = Nodo(0, 0, 10, 10, self.particulas)
+
+    def add_particula(self, x:float, y:float):
+        self.particulas.append(Particulas(x, y))
+
+    def get_particulas(self):
+        return self.particulas
+
+    def subdividir(self):
+        subdivision_recursiva(self.root, self.umbral)
+
+    def visualizacion(self):
+        fig = plt.figure(figsize=(12,8))
+        plt.title("Quadtree")
+        c = encontrar_hijos(self.root)
+        print("Numero de segmentos: %d" %len(c))
+        areas = set()
+        for el in c:
+            areas.add(el.ancho*el.ancho)
+        print("Minima area por segmento: %.3f  units" %min(areas))
+        for n in c:
+            plt.gcf().gca().add_patch(patches.Rectangle((n.x0, n.y0), n.ancho, n.alto, fill=False))
+        x = [particula.x for particula in self.particulas]
+        y = [particula.y for particula in self.particulas]
+        plt.plot(x,y, 'ro')# Muestra las particulas como puntos rojos
+        plt.show()
+        return
+
+qtree = QTree(2, 200)
+qtree.subdividir()
+qtree.visualizacion()
