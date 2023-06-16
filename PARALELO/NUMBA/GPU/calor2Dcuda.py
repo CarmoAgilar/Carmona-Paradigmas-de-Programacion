@@ -50,7 +50,7 @@ def solucion_kernel(u_d,un_d,udx2_0,udx2_1,dt,n_0,n_1,kd):
         unueva = 1.0
     un_d[i] = unueva
 
-blockdim = (32,16) #hilos por bloque
+blockdim = (32,16) # hilos por bloque
 briddim = (int(n[0]/blockdim[0]),int(n[1]/blockdim[1])) #bloques en el dominio
 
 #===========================
