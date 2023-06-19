@@ -14,20 +14,12 @@ if __name__ == "__main__":
     src = rank-1 if rank!=0 else size-1
     dst = rank+1 if rank!=size-1 else 0
 
-    #====================================
+    comm.isend(s, dest=dst # envio no bloqueante)
+    
     # Recibir no bloqueante con espera
     # req: request 
-    #====================================
+    req = comm.irecv(source=src)
+    a = req.wait()
 
-    if rank%2==0:
-
-        comm.send(s, dest=destino) # envia s al destino
-
-        m = comm.recv(source=fuente) # recibe de fuente y lo pone en m
     
-    else:
-
-        m = comm.recv(source=fuente) # recibe de fuente y lo pone en m
-
-        comm.send(s, dest=destino) # envia s al destino
-    print("Soy el proceso ", rank ,", el resultado es ", len(m.x) ,",", m.p)
+    print("Soy el proceso ", rank ,", el resultado es ", len(a.x) , a.p)
