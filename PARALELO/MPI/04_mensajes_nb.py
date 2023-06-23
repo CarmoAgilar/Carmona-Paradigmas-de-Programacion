@@ -14,7 +14,7 @@ if __name__ == "__main__":
     src = rank-1 if rank!=0 else size-1
     dst = rank+1 if rank!=size-1 else 0
 
-    comm.isend(s, dest=dst # envio no bloqueante)
+    comm.isend(s, dest=dst) # envio no bloqueante
     
     # Recibir no bloqueante con espera
     # req: request 

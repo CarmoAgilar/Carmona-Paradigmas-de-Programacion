@@ -3,7 +3,7 @@ import numpy
 
 comm = MPI.COMM_WORLD
 size = comm.Get_size()
-rank = comm.Get-rank()
+rank = comm.Get_rank()
 
 n = 10
 

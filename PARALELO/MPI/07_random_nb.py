@@ -17,10 +17,10 @@ if rank == 0:
     src = 1
 
     
-randNum = numpy.random.random_sample(1)
-print("Soy el proceso ", rank ,", recibio ", randNum[0})
+randNum = np.random.random_sample(1)
+print("Soy el proceso ", rank ,", recibio ", randNum[0])
 comm.Isend(randNum, dest=dst)
 req = comm.Irecv(randNum, source=src)
 req.Wait()
-print("Soy el proceso ", rank ,", recibio ", randNum[0})
+print("Soy el proceso ", rank ,", recibio ", randNum[0])
 
