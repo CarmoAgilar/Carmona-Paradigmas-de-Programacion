@@ -14,7 +14,7 @@ n = np.array([512,512], dtype=np.int64)
 #tamaño del dominio (mas chico que uno)
 L = np.array([1.0,1.0], dtype=np.float64)
 #constante de difusion
-k = 0.2
+kd = 0.2
 #apsos de tiempo
 pasos = 1000
 # - - - - - - - - - - - - - - - - - - - - -
@@ -23,7 +23,7 @@ pasos = 1000
 dx = L/n
 udx2 = 1.0/(dx*dx)
 #paso de tiempo
-dt = 0.25*(min(dx[0],dx[1])**2)/k
+dt = 0.25*(min(dx[0],dx[1])**2)/kd
 print("dt = ",dt)
 # total de celdas
 nt = n[0]*n[1]
@@ -38,6 +38,8 @@ def evolucion(u,n_0,n_1,udx2_0, udx2_1,dt,kd,i):
     unueva = u[i] + dt*kd*laplaciano
     return unueva
 
+evolucion_gpu = cuda.jit(device=True)(evolucion)
+
 @cuda.jit
 def solucion_kernel(u_d,un_d,udx2_0,udx2_1,dt,n_0,n_1,kd):
     ii, jj = cuda.grid(2)
@@ -51,7 +53,7 @@ def solucion_kernel(u_d,un_d,udx2_0,udx2_1,dt,n_0,n_1,kd):
     un_d[i] = unueva
 
 blockdim = (32,16) # hilos por bloque
-briddim = (int(n[0]/blockdim[0]),int(n[1]/blockdim[1])) #bloques en el dominio
+griddim = (int(n[0]/blockdim[0]),int(n[1]/blockdim[1])) #bloques en el dominio
 
 #===========================
 # programa principal
