@@ -15,7 +15,7 @@ def calcualar_kernel(rng_states, iteraciones, out):
 
     # calcular pi dibujando puntos (x,y) al azar y encontrando
     # la fraccion parcial de ellos que cae en el circulo unitario
-    car_dentro =0
+    cae_dentro =0
     for i in range(iteraciones):
         x = xoroshiro128p_uniform_float64(rng_states, ii)
         y = xoroshiro128p_uniform_float64(rng_states, ii)
@@ -26,7 +26,7 @@ def calcualar_kernel(rng_states, iteraciones, out):
 
 # Procesos para cuda
 hilosporbloque = 64
-bloques =24
+bloques = 24
 
 # Arreglos necesarios
 seed1 = random.uniform(-1,1)
