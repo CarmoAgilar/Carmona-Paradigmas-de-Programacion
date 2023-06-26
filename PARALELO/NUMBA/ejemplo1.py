@@ -2,7 +2,7 @@ from numba import jit
 import numpy
 import time
 
-@jit(nonpython=True)
+@jit(nopython=True)
 def rapido(a):
     t = 0.0
     for i in range(a.shape[0]):
